@@ -43,7 +43,7 @@ char state4(){ //off
 
 void state_advance(){
   char changed = 0;
-  switch(switch_state_changed){
+  switch(button_state){
   case 1:
     changed = state1();
     break;
@@ -60,3 +60,4 @@ void state_advance(){
   led_changed = changed;
   led_update();
 }
+
