@@ -14,7 +14,7 @@ char state1(){ //trigger red
 }
 
 char state2(){ //trigger green 
-  char state = 0;
+  static char state = 0;
   switch(state){
   case 0: green_on = 1; state = 1; break;
   case 1: green_on = 0; state = 0; break;
@@ -22,7 +22,7 @@ char state2(){ //trigger green
   return 1;
 }
 
-char state3(){ //toggle
+char state3(){ //toggle red and green lighst 
   char changed = 0;
   static enum{R=0, G=1} color = G;
   switch(color){
@@ -43,7 +43,7 @@ char state4(){ //off
 
 void state_advance(){
   char changed = 0;
-  switch(button_state){
+  switch(switch_state_changed){
   case 1:
     changed = state1();
     break;
